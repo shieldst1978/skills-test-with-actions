@@ -2,8 +2,7 @@ name: Python Coverage
 
 on:
   pull_request:
-    branches:
-      - main
+    branches: ["main"]
 
 permissions:
   pull-requests: write
@@ -39,3 +38,7 @@ jobs:
 
       - name: Fail if below threshold
         run: coverage report --fail-under=90
+
+      - name: Test with pytest
+        run: |
+            pytest --verbose
